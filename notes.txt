@@ -1,0 +1,6 @@
+
+1. All tests should have:
+    Init
+    Execution
+    Validation
+2. Don't relay on test coverage - comment out example when coverage is 100%. The most important is that test should have init, execution and VALIDATION
