@@ -4,5 +4,16 @@
     Execution
     Validation
 2. Don't relay on test coverage - comment out example when coverage is 100%. The most important is that test should have init, execution and VALIDATION
+// BubleSort function - proof that coverage is not a good metric
+func TestBubleSortAlready(t *testing.T) {
+	// Init
+	elements := []int{9,7,5,3}
+
+	//Execution
+	BubleSort(elements)
+}
+
 3. Uint or intergation depends on inplementing code - all test in Go use *testing.T
 4. Integration test in our case is when we are calling the functions from different package
+
+### Basic benchmarks
