@@ -2,18 +2,24 @@ package sort
 
 import (
 	"testing"
+	"github.com/stretchr/testify/assert"
 )
 
 // BubleSort function
 func TestBubleSortIncreasingOrder(t *testing.T) {
 	elements := GetElements(10)
+	assert.NotNil(t, elements)
+	assert.EqualValues(t,10,len(elements))
+	assert.EqualValues(t,9,elements[0])
+	assert.EqualValues(t,0,elements[9])
+
 	BubleSort(elements)
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-	if elements[len(elements)-1] != 9 {
-		t.Error("first element should be 9")
-	}
+
+	assert.NotNil(t, elements)
+	assert.EqualValues(t,10,len(elements))
+	assert.EqualValues(t,9,elements[0])
+	assert.EqualValues(t,0,elements[9])
+
 }
 
 func TestSortIncreasingOrder(t *testing.T) {
