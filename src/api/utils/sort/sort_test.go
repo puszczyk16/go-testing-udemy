@@ -2,36 +2,43 @@ package sort
 
 import (
 	"testing"
-	"fmt"
 )
 
 // BubleSort function
-func TestBubleSort(t *testing.T) {
-	// Init
-	elements := []int{9,7,5,3,1,2,4,6,8,0}
-	fmt.Println(elements)
-
-	//Execution
+func TestBubleSortIncreasingOrder(t *testing.T) {
+	elements := GetElements(10)
 	BubleSort(elements)
-	fmt.Println(elements)
-	
-	//Validation
-	if elements[0] != 9 {
-		t.Error("first element should be 9")
-	}
-
-	if elements[len(elements)-1] != 0 {
+	if elements[0] != 0 {
 		t.Error("first element should be 0")
+	}
+	if elements[len(elements)-1] != 9 {
+		t.Error("first element should be 9")
 	}
 }
 
-// BubleSort function - proof that coverage is not a good metric
-func TestBubleSortAlready(t *testing.T) {
-	// Init
-	elements := []int{9,7,5,3}
+func TestSortIncreasingOrder(t *testing.T) {
+	elements := GetElements(10)
+	Sort(elements)
+	if elements[0] != 0 {
+		t.Error("first element should be 0")
+	}
+	if elements[len(elements)-1] != 9 {
+		t.Error("first element should be 9")
+	}
+}
 
-	//Execution
-	BubleSort(elements)
-	
-	
+func BenchmarkBubbleSort(b *testing.B) {
+	//elements := []int{9,7,5,3,1,2,4,6,8,0}
+	elements := GetElements(1000)
+	for i := 0; i < b.N; i++ {
+		BubleSort(elements)
+	}
+}
+
+func BenchmarkSort(b *testing.B) {
+	//elements := []int{9,7,5,3,1,2,4,6,8,0}
+	elements := GetElements(1000)
+	for i := 0; i < b.N; i++ {
+		Sort(elements)
+	}
 }
